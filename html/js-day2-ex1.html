@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #div-container div {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div-container">
+      <div id="d1" style="width: 100px; margin: 1px">&nbsp;</div>
+      <div id="d2" style="width: 100px; margin: 1px">&nbsp;</div>
+      <div id="d3" style="width: 100px; margin: 1px">&nbsp;</div>
+    </div>
+    <button id="btn">Change colors</button>
+
+    <script>
+      const getRandomColor = function () {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      };
+
+      function changeColors() {
+        divs.forEach((div) => (div.style.backgroundColor = getRandomColor()));
+      }
+
+      const divs = document.querySelectorAll("#div-container div");
+      const btn = document.getElementById("btn");
+
+      divs.forEach((div) => (div.style.backgroundColor = "yellow"));
+      btn.addEventListener("click", changeColors);
+    </script>
+  </body>
+</html>
