@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-3</title>
+  </head>
+  <body>
+    <ul id="names-list"></ul>
+    <form>
+      <input type="text" id="add-name-input" />
+      <button id="add-name-btn">Add name</button>
+      <button id="remove-first-btn">Remove first</button>
+      <button id="remove-last-btn">Remove last</button>
+    </form>
+  </body>
+
+  <script>
+    const names = ["Lars", "Peter", "Jan", "Ian", "Tore"];
+
+    function makeList() {
+      const list = names.map((s) => `<li>${s}</li>`).join("");
+      document.getElementById("names-list").innerHTML = list;
+    }
+    makeList();
+
+    document.getElementById("add-name-btn").onclick = (event) => {
+      event.preventDefault();
+      const name = document.getElementById("add-name-input").value;
+      if (name != "") {
+        names.push(encode(name));
+        makeList();
+        document.getElementById("add-name-input").value = "";
+      }
+    };
+
+    document.getElementById("remove-first-btn").onclick = (event) => {
+      event.preventDefault();
+      names.shift();
+      makeList();
+    };
+
+    document.getElementById("remove-last-btn").onclick = (event) => {
+      event.preventDefault();
+      names.pop();
+      makeList();
+    };
+
+    function encode(str) {
+      str = str.replace(/&/g, "&amp;");
+      str = str.replace(/>/g, "&gt;");
+      str = str.replace(/</g, "&lt;");
+      str = str.replace(/"/g, "&quot;");
+      str = str.replace(/'/g, "&#039;");
+      return str;
+    }
+  </script>
+</html>
