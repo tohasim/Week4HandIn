@@ -32,9 +32,8 @@ console.log("2 console.log disabled so code will run")
 //console.log(cb(3,3,add())); // What will it print (and what was the problem)? TypeError: callback is not a function, as we call the actual function (without any input even) instead of passing it as a parameter
 //console.log(cb(3,"hh",add));// What will it print? Result from the two numbers: 3+hh=3hh
 
-desiredLength = 66
 
-console.log(formatString("AddVersion2", desiredLength))
+console.log(formatString("AddVersion2"))
 
 // ...rest notation means it can take an arbitrary amount of parameters, it will then reduce through the parameters accumilating the sum of all the numbers
 function addVersion2(n1, n2, ...rest) {
@@ -43,11 +42,11 @@ function addVersion2(n1, n2, ...rest) {
 
 console.log(addVersion2(1, 2, 3, 4, 5, 6));
 
-console.log(formatString("mul(n1, n2)", desiredLength))
+console.log(formatString("mul(n1, n2)"))
 
 console.log(cb(5, 10, mul));
 
-console.log(formatString("Anonymous", desiredLength))
+console.log(formatString("Anonymous"))
 
 console.log(cb(10, 5, (n1, n2) => n1 / n2));
 
@@ -58,26 +57,26 @@ const filterByLength = function (names) {
 };
 
 str4 = "Filter names by length"
-console.log(formatString(str4, desiredLength))
+console.log(formatString(str4))
 
-console.log(formatString("All names:", desiredLength))
+console.log(formatString("All names:"))
 
 names.forEach((name) => console.log(name));
 
-console.log(formatString("Names with length <= 3:", desiredLength))
+console.log(formatString("Names with length <= 3:"))
 
 const filteredNames = filterByLength(names);
 filteredNames.forEach((name) => console.log(name));
 
 const upperCaseNames = names.map((name) => name.toUpperCase());
 
-console.log(formatString("Names IN UPPER CASE:", desiredLength))
-
+console.log(formatString("Names IN UPPER CASE:"))
 
 upperCaseNames.forEach((name) => console.log(name));
 
 
-function formatString(str, desiredLength) {
+function formatString(str) {
+  const desiredLength = 66
   const paddingLength = Math.max(0, desiredLength - str.length);
   const leftPadding = '-'.repeat(Math.floor(paddingLength / 2));
   const rightPadding = '-'.repeat(Math.ceil(paddingLength / 2));
