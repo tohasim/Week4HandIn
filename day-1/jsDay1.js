@@ -28,12 +28,13 @@ console.log(add(1, 2, 3)); // What will it print? 3, meaning it only cares about
 console.log(add(1)); // What will it print? NaN as it didn't get enough arguments
 console.log(cb(3, 3, add)); // What will it print? Result from the two numbers: 3+3=6
 console.log(cb(4, 3, sub)); // What will it print? Result from the two numbers: 4+3=1
+console.log("2 console.log disabled so code will run")
 //console.log(cb(3,3,add())); // What will it print (and what was the problem)? TypeError: callback is not a function, as we call the actual function (without any input even) instead of passing it as a parameter
 //console.log(cb(3,"hh",add));// What will it print? Result from the two numbers: 3+hh=3hh
 
-console.log(
-  "------------------------ AddVersion2 -----------------------------"
-);
+desiredLength = 66
+
+console.log(formatString("AddVersion2", desiredLength))
 
 // ...rest notation means it can take an arbitrary amount of parameters, it will then reduce through the parameters accumilating the sum of all the numbers
 function addVersion2(n1, n2, ...rest) {
@@ -42,13 +43,12 @@ function addVersion2(n1, n2, ...rest) {
 
 console.log(addVersion2(1, 2, 3, 4, 5, 6));
 
-console.log(
-  "------------------------ mul(n1, n2) -----------------------------"
-);
+console.log(formatString("mul(n1, n2)", desiredLength))
+
 console.log(cb(5, 10, mul));
-console.log(
-  "------------------------- Anonymous ------------------------------"
-);
+
+console.log(formatString("Anonymous", desiredLength))
+
 console.log(cb(10, 5, (n1, n2) => n1 / n2));
 
 const names = ["Lars", "Jan", "Peter", "Bo", "Frederik"];
@@ -57,23 +57,30 @@ const filterByLength = function (names) {
   return names.filter((name) => name.length <= 3);
 };
 
-console.log(
-  "------------------------ Filter names by length ------------------------"
-);
-console.log("------------------------ All names: ------------------------");
+str4 = "Filter names by length"
+console.log(formatString(str4, desiredLength))
+
+console.log(formatString("All names:", desiredLength))
 
 names.forEach((name) => console.log(name));
 
-console.log(
-  "------------------------ Names with length <= 3: ------------------------"
-);
+console.log(formatString("Names with length <= 3:", desiredLength))
+
 const filteredNames = filterByLength(names);
 filteredNames.forEach((name) => console.log(name));
 
 const upperCaseNames = names.map((name) => name.toUpperCase());
 
-console.log(
-  "------------------------ Names IN UPPER CASE: ------------------------"
-);
+console.log(formatString("Names IN UPPER CASE:", desiredLength))
+
 
 upperCaseNames.forEach((name) => console.log(name));
+
+
+function formatString(str, desiredLength) {
+  const paddingLength = Math.max(0, desiredLength - str.length);
+  const leftPadding = '-'.repeat(Math.floor(paddingLength / 2));
+  const rightPadding = '-'.repeat(Math.ceil(paddingLength / 2));
+
+  return '\n' + leftPadding + ' ' + str + ' ' + rightPadding ;
+}
