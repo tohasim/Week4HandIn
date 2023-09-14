@@ -26,11 +26,16 @@
       <div id="div-8" class="my-div"></div>
       <div id="div-9" class="my-div"></div>
     </div>
+    <p id="paragraph"></p>
   </body>
 
   <script>
     function onClick() {
-      event.target.style.backgroundColor = "yellow";
+      if (event.target.id != "outer") {
+        document.getElementById("paragraph").innerText =
+          "Hi from " + event.target.id;
+        console.log("Hi from " + event.target.id);
+      }
     }
 
     const outerDiv = document.getElementById("outer");
