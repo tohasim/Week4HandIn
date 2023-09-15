@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-5</title>
+  </head>
+  <body>
+    <select id="car-selector">
+      <option>test</option>
+      <option>test</option>
+      <option>test</option>
+      <option>test</option>
+      <option>test</option>
+      <!-- Options will be populated by JavaScript -->
+    </select>
+    <h2>Selected Brand</h2>
+    <h4 id="car-make"></h4>
+
+    <script>
+      const cars = ["Ford", "WW", "Toyota", "Volvo"]; //Assume this was fechedfrom the backend
+      const selectElement = document.getElementById("car-selector");
+      const carOptions = cars.map((s) => `<option> ${s} </option>`).join("");
+      selectElement.innerHTML = carOptions;
+      updateSelectedBrand();
+      selectElement.addEventListener("click", updateSelectedBrand);
+
+      function updateSelectedBrand() {
+        const selectedBrand =
+          selectElement.options[selectElement.selectedIndex].value;
+        document.getElementById("car-make").innerText = selectedBrand;
+      }
+    </script>
+  </body>
+</html>
