@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>Exercise-5</title>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Year</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div id="price-filter">
+      Price:
+      <input class="filter-input" type="text" />
+      <button class="filter-button">Price less than</button>
+    </div>
+    <div id="make-filter">
+      Make:
+      <input class="filter-input" type="text" />
+      <button class="filter-button">Filter make</button>
+    </div>
+    <button id="filter-reset">Reset filters</button>
+  </body>
+
+  <script>
+    const cars = [
+      { id: 1, year: 1997, make: "Ford", model: "E350", price: 3000 },
+      { id: 2, year: 1999, make: "Chevy", model: "Venture", price: 4900 },
+      { id: 3, year: 2000, make: "Chevy", model: "Venture", price: 5000 },
+      { id: 4, year: 1996, make: "Jeep", model: "Grand Cherokee", price: 4799 },
+      { id: 5, year: 2005, make: "Volvo", model: "V70", price: 44799 },
+    ];
+    updateTable(cars);
+
+    const priceFilterBtn = document.querySelector(
+      "#price-filter .filter-button"
+    );
+    const priceFilterInput = document.querySelector(
+      "#price-filter .filter-input"
+    );
+    const makeFilterBtn = document.querySelector("#make-filter .filter-button");
+    const makeFilterInput = document.querySelector(
+      "#make-filter .filter-input"
+    );
+    const filterResetBtn = document.getElementById("filter-reset");
+
+    priceFilterBtn.addEventListener("click", filterCarPrice);
+    makeFilterBtn.addEventListener("click", filterCarMake);
+    filterResetBtn.addEventListener("click", resetFilter);
+
+    function resetFilter() {
+      priceFilterInput.value = "";
+      makeFilterInput.value = "";
+      updateTable(cars);
+    }
+    function filterCarMake() {
+      if (makeFilterInput.value != "") {
+        const makeFilterValue = makeFilterInput.value.toLowerCase();
+        const filteredCars = cars.filter(
+          (car) => car.make.toLowerCase() === makeFilterValue
+        );
+        updateTable(filteredCars);
+      }
+    }
+    function filterCarPrice() {
+      if (priceFilterInput.value != "") {
+        const priceFilterValue = parseFloat(priceFilterInput.value);
+        const filteredCars = cars.filter((car) => car.price < priceFilterValue);
+        updateTable(filteredCars);
+      }
+    }
+    function updateTable(carArray) {
+      document.getElementById("tbody").innerHTML = carArray
+        .map(
+          (car) =>
+            `<tr><td>${car.id}</td><td>${car.year}</td><td>${car.make}</td><td>${car.model}</td><td>${car.price}</td</tr>`
+        )
+        .join("");
+    }
+  </script>
+</html>
