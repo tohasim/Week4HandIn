@@ -12,9 +12,13 @@
     </select>
     <h2>Selected Brand</h2>
     <h4 id="car-make"></h4>
-
+    <h2>Reflections</h2>
+    I found it nice that we didn't have to check which element was chosen here
+    and then update it, but that it does the same thing regardless. A dumber
+    solution would be to check if the clicked element was a option tag, and then
+    read the value from that option tag.
     <script>
-      const cars = ["Ford", "WW", "Toyota", "Volvo"]; //Assume this was fechedfrom the backend
+      const cars = ["Ford", "VW", "Toyota", "Volvo"]; //Assume this was fechedfrom the backend
       const selectElement = document.getElementById("car-selector");
       const carOptions = cars.map((s) => `<option> ${s} </option>`).join("");
       selectElement.innerHTML = carOptions;
