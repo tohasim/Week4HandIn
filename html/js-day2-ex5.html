@@ -17,7 +17,7 @@
           <th>Year</th>
           <th>Make</th>
           <th>Model</th>
-          <th>Price</th>
+          <th id="price-header">Price</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -56,10 +56,13 @@
       "#make-filter .filter-input"
     );
     const filterResetBtn = document.getElementById("filter-reset");
+    const priceHeader = document.getElementById("price-header");
+    let sortAsc = true;
 
     priceFilterBtn.addEventListener("click", filterCarPrice);
     makeFilterBtn.addEventListener("click", filterCarMake);
     filterResetBtn.addEventListener("click", resetFilter);
+    priceHeader.addEventListener("click", sortByPrice);
 
     function resetFilter() {
       priceFilterInput.value = "";
@@ -89,6 +92,14 @@
             `<tr><td>${car.id}</td><td>${car.year}</td><td>${car.make}</td><td>${car.model}</td><td>${car.price}</td</tr>`
         )
         .join("");
+    }
+    function sortByPrice() {
+      let sortedCars = cars.sort((curr, acc) => curr.price > acc.price);
+      if (!sortAsc) {
+        sortedCars.reverse();
+      }
+      sortAsc = !sortAsc;
+      updateTable(sortedCars);
     }
   </script>
 </html>
