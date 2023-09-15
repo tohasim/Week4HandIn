@@ -10,6 +10,7 @@
     <title>Exercise-5</title>
   </head>
   <body>
+    <a href="index.html"><button>Back</button></a>
     <table class="table">
       <thead>
         <tr>
@@ -66,11 +67,22 @@
     priceFilterBtn.addEventListener("click", filterCarPrice);
     makeFilterBtn.addEventListener("click", filterCarMake);
     filterResetBtn.addEventListener("click", resetFilter);
-    priceHeader.addEventListener("click", sortByPrice);
-    modelHeader.addEventListener("click", sortByModel);
-    makeHeader.addEventListener("click", sortByMake);
-    yearHeader.addEventListener("click", sortByYear);
-    idHeader.addEventListener("click", sortById);
+
+    priceHeader.addEventListener("click", () => {
+      sortByAttribute("price");
+    });
+    modelHeader.addEventListener("click", () => {
+      sortByAttribute("model");
+    });
+    makeHeader.addEventListener("click", () => {
+      sortByAttribute("make");
+    });
+    yearHeader.addEventListener("click", () => {
+      sortByAttribute("year");
+    });
+    idHeader.addEventListener("click", () => {
+      sortByAttribute("id");
+    });
 
     function resetFilter() {
       priceFilterInput.value = "";
@@ -102,40 +114,10 @@
         .join("");
     }
 
-    function sortByPrice() {
-      let sortedCars = cars.sort((curr, acc) => curr.price > acc.price);
-      if (!sortAsc) {
-        sortedCars.reverse();
-      }
-      sortAsc = !sortAsc;
-      updateTable(sortedCars);
-    }
-    function sortByModel() {
-      let sortedCars = cars.sort((curr, acc) => curr.model > acc.model);
-      if (!sortAsc) {
-        sortedCars.reverse();
-      }
-      sortAsc = !sortAsc;
-      updateTable(sortedCars);
-    }
-    function sortByMake() {
-      let sortedCars = cars.sort((curr, acc) => curr.make > acc.make);
-      if (!sortAsc) {
-        sortedCars.reverse();
-      }
-      sortAsc = !sortAsc;
-      updateTable(sortedCars);
-    }
-    function sortByYear() {
-      let sortedCars = cars.sort((curr, acc) => curr.year > acc.year);
-      if (!sortAsc) {
-        sortedCars.reverse();
-      }
-      sortAsc = !sortAsc;
-      updateTable(sortedCars);
-    }
-    function sortById() {
-      let sortedCars = cars.sort((curr, acc) => curr.id > acc.id);
+    function sortByAttribute(attribute) {
+      let sortedCars = cars.sort(
+        (curr, acc) => curr[attribute] > acc[attribute]
+      );
       if (!sortAsc) {
         sortedCars.reverse();
       }
