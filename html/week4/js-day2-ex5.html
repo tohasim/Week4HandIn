@@ -3,14 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <title>Exercise-5</title>
   </head>
   <body>
-    <a href="index.html"><button>Back</button></a>
+    <a href="/html/index.html"><button>Back</button></a>
+
     <table class="table">
       <thead>
         <tr>
@@ -35,9 +33,8 @@
     </div>
     <button id="filter-reset">Reset filters</button>
     <h2>Reflections</h2>
-    This was the most fun exercise for me, as there was alot of ways to
-    interpret the code, and refactorings/optimizations to be done, I still have
-    some ideas to what could be implemented here.
+    This was the most fun exercise for me, as there was alot of ways to interpret the code, and
+    refactorings/optimizations to be done, I still have some ideas to what could be implemented here.
   </body>
 
   <script>
@@ -50,16 +47,10 @@
     ];
     updateTable(cars);
 
-    const priceFilterBtn = document.querySelector(
-      "#price-filter .filter-button"
-    );
-    const priceFilterInput = document.querySelector(
-      "#price-filter .filter-input"
-    );
+    const priceFilterBtn = document.querySelector("#price-filter .filter-button");
+    const priceFilterInput = document.querySelector("#price-filter .filter-input");
     const makeFilterBtn = document.querySelector("#make-filter .filter-button");
-    const makeFilterInput = document.querySelector(
-      "#make-filter .filter-input"
-    );
+    const makeFilterInput = document.querySelector("#make-filter .filter-input");
     const filterResetBtn = document.getElementById("filter-reset");
     const priceHeader = document.getElementById("price-header");
     const modelHeader = document.getElementById("model-header");
@@ -96,9 +87,7 @@
     function filterCarMake() {
       if (makeFilterInput.value != "") {
         const makeFilterValue = makeFilterInput.value.toLowerCase();
-        const filteredCars = cars.filter(
-          (car) => car.make.toLowerCase() === makeFilterValue
-        );
+        const filteredCars = cars.filter((car) => car.make.toLowerCase() === makeFilterValue);
         updateTable(filteredCars);
       }
     }
@@ -119,9 +108,7 @@
     }
 
     function sortByAttribute(attribute) {
-      let sortedCars = cars.sort(
-        (curr, acc) => curr[attribute] > acc[attribute]
-      );
+      let sortedCars = cars.sort((curr, acc) => curr[attribute] > acc[attribute]);
       if (!sortAsc) {
         sortedCars.reverse();
       }
