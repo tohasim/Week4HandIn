@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Cars</title>
   <script src = "../../JsDay3/cars.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,7 +26,7 @@
 <body style="font-family: sans-serif">
     <a href="../../index.html"><button>Back</button></a>
   <div style="margin-top:1em;margin-left: 3%;width: 90%;margin-right: auto;">
-    <h2>Car's 'R' Us Client Demo - Version poor ;-</h2>
+    <h2>Car's 'R' Us Client Demo - Version poor ;-)</h2>
     <div class="container-fluid">
       <div class="row row-height-30">
         <!--########################  SHOW ALL CARS OR MEMBERS ########################-->
@@ -59,8 +59,7 @@
       <div class="row row-height-55">
         <!--########################  ADD A CAR OR MEMBER ########################-->
         <div class="col">
-          <h3>Add a Car</h3>
-          <button>Submit new item</button><form id="carForm">
+          <h3>Add a Car</h3><form id="carForm">
             <div class="row mb-3">
               <label for="brand" class="col-sm-2 col-form-label">Brand</label>
               <div class="col-sm-10">
@@ -87,21 +86,39 @@
             </div>
           </form>
 
+          <button id="btn-add-car">Submit new item</button>
+          <p id="new-car-response">Show returned data, if any</p>
         </div>
 
         <!--########################  EDIT A CAR OR MEMBER ########################-->
         <div class="col">
           <h3>Edit a Car</h3>
           <label for="text-for-id2">Id</label>&nbsp;<input id="text-for-id2" />
-          <button>Find item to edit</button>
-          <p>Show what you find here, and let users edit fields</p>
+          <button id="btn-find-car-2">Find item to edit</button>
+          <p id="found-car-2">Show what you find here, and let users edit fields</p>
           <p>......</p>
-          <button>Submit edited item</button>
-          <p>Use one of the two GET pages to verify that "something" was added</p>
+          <button id="btn-edit-car">Submit edited item</button>
+          <p id="edited-car">Use one of the two GET pages to verify that "something" was added</p>
         </div>
       </div>
     </div>
   </div>
+  </div>
+  <div 
+  style="
+    border: 1px solid black;
+    width: fit-content;
+    max-width: 80%;
+    padding: 1em;
+    background: lightyellow;
+    margin: 10%;
+  ">
+    <b>Reflections:</b>
+    <br />
+    For the POST method, I created a form with inputs for the user to enter the data I need to create a car.<br>
+    I then read the values from the form and created a <i>newCar</i> with the information, which I could add to the body.
+    <br> <br>
+    I created an <i>options</i> object, which is a map with 3 (key, value) pairs. The first one is where I define that I use the POST method, the second one is for adding headers, and the last one is to append any data that should be added with the body (in JSON)
   </div>
 </body>
 

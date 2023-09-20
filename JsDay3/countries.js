@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const infoDiv = document.getElementById("info");
   let currentChosen = null;
 
-  map.addEventListener("mouseover", () => {
+  map.addEventListener("click", () => {
     changecolor();
     displayInfo();
   });
@@ -43,11 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function formatCurrencies(currencies) {
     const currencyEntries = Object.entries(currencies);
-
-    if (currencyEntries.length === 0) {
-      return "Currencies: None";
-    }
-
     const formattedCurrencies = currencyEntries.map(([code, currency]) => {
       return `${code}, name: ${currency.name}, symbol: ${currency.symbol}`;
     });

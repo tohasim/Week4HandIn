@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Countries</title>
     <script src="../../JsDay3/countries.js"></script>
   </head>
   <body>
@@ -1009,13 +1009,24 @@
 
     <div
       id="info"
+      style="float: right; display: block; border-style: solid; border-color: lightsteelblue; padding: 1em"
+    ></div>
+
+    <div
       style="
-        float: right;
-        display: block;
-        border-style: solid;
-        border-color: lightsteelblue;
+        float: inline-end;
+        border: 1px solid black;
+        width: fit-content;
+        max-width: 80%;
         padding: 1em;
+        background: lightyellow;
+        margin: 10%;
       "
     >
+      <b>Reflections:</b>
+      <br />
+      Here I used event bubbling to catch the click event on the individual SVG elements, I did this by adding the event
+      to the map div that holds the elements.
+    </div>
   </body>
-</html
+</html>
