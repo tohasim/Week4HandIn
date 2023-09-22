@@ -16,5 +16,43 @@
       </div>
     </div>
     <div id="content"></div>
+
+    <div
+      style="
+        border: 1px solid black;
+        width: fit-content;
+        max-width: 80%;
+        padding: 1em;
+        background: lightyellow;
+        margin: 10%;
+      "
+    >
+      <b>Answers:</b>
+      <ul>
+        <li>
+          <b>When navigating the application only one element actually changes on your index.html file, which?</b>
+          <br />
+          The "content" div, as this is the div that holds the DOM content that we change when changing pages
+        </li>
+        <li>
+          <b>Explain briefly the concept ES6 Modules (JavaScript Modules) and how it was used in the example?</b>
+          <br />
+          JavaScript modules is the concept of having multiple JavaScript files with specific purposes, which are then
+          controlled and loaded by he main "index.js" file.
+        </li>
+        <li>
+          <b>Why did we have to "load" HTML and JavaScript in different ways?</b>
+          <br />
+          We had to use async await to load our html, as it has to load all the DOM elements from the different files,
+          so it is ready to use when we use our js functions
+        </li>
+        <li>
+          <b>Why is the phrase singleton often mentioned in connection with JavaScript Modules?</b>
+          <br />
+          Because the nature of jsModules means that you create singleton variables when declaring them outside of a
+          function, and then exporting them to other js files
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
