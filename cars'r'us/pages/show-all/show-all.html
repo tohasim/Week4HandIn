@@ -7,7 +7,20 @@
   </head>
   <body>
     <div class="template">
-      <h1>Show all cars</h1>
+      <h1>Show all Cars</h1>
+      <button id="btn-get-all">Get all</button>
+      <table style="display: block" class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price pr day</th>
+            <th>Best Discount</th>
+          </tr>
+        </thead>
+        <tbody style="display: block; max-height: 8em; overflow-y: scroll" id="tbody"></tbody>
+      </table>
     </div>
   </body>
 </html>

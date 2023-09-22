@@ -12,6 +12,7 @@ window.addEventListener("load", async () => {
 
   document.getElementById("btns").onclick = handleButtonClicks;
   renderHtml(templateShowAll, "content");
+  initShowAll();
 
   function handleButtonClicks(evt) {
     const target = evt.target;
