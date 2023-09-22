@@ -7,7 +7,6 @@ export function initShowAll() {
 
 
 function getAllCars() {
-  alert("hej")
   fetch(SERVER_URL)
     .then((response) => response.json())
     .then((cars) => {
